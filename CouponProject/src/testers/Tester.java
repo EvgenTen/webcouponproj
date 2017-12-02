@@ -56,8 +56,8 @@ public class Tester {
 //	 
 //	    	JOptionPane.showConfirmDialog(null, myPanel, "Please enter parameters: " , JOptionPane.OK_CANCEL_OPTION);
 
-	    	Company com = new Company ("Bar", "12345", "gdfg@fgfdh.com");
-	    	companyDao.createCompany(com);
+//	    	Company com = new Company ("Bar", "12345", "gdfg@fgfdh.com");
+//	    	companyDao.createCompany(com);
 //Customer Create:    	
 //	     	Customer cust = new Customer(5, "Name", "Pass");
 //	    	customerDao.customerCreate(cust);
@@ -99,12 +99,12 @@ public class Tester {
 //                System.out.println(c);
 //            }
 //           
-            List<Company> companyList = companyDao.getAllCompanies();
-            System.out.println("Company List:");
-            for (Company comp : companyList) {
-                System.out.println(comp);
-            }
-           
+//            List<Company> companyList = companyDao.getAllCompanies();
+//            System.out.println("Company List:");
+//            for (Company comp : companyList) {
+//                System.out.println(comp);
+//            }
+//           
 //            List<Coupon> couponList = couponsDao.getAllCoupons();
 //            //Thread.sleep(10000);
 //	        System.out.println("Coupons list:");

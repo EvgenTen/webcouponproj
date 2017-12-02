@@ -223,14 +223,17 @@ public class CompanyDao extends JdbcUtils implements ICompanyDao {
 			resultSet = statement.executeQuery();
 			resultSet.next();
 			statement.executeQuery();
-
+			if(resultSet != null)
+			
 			if (!resultSet.next()) {
 				return false;
 			}
 			return true;
+			
 		} catch (Exception e) {
 			throw new ApplicationException(e, ErrorType.WRONG_COMPANY_NAME_OR_DOESNT_EXIST);
-		} finally {
+		}
+		finally {
 			JdbcUtils.closeResources(connection, statement, resultSet);
 		}
 	}

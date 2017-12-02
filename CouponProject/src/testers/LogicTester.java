@@ -31,6 +31,10 @@ public class LogicTester {
 	    	CouponsDao couponsDao = new CouponsDao();
 	    	CompanyDao companyDao = new CompanyDao();
 	    	
+	   	System.out.println(customerDao.isCustomerExistByName("Mdark"));
+	    	
+	    //	System.out.println(companyDao.isCompanyExistById((long) 1));
+	    	
 //	    	Company company = cc.getCompanybyID(2);
 //	    	
 //	    	System.out.println(company);
