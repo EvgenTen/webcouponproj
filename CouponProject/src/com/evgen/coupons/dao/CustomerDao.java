@@ -22,7 +22,7 @@ public class CustomerDao extends JdbcUtils implements ICustomerDao {
 	ResultSet resultSet = null;//
 	
 	/*
-	 * This method creates customer with given values in Customer table
+	 * This method creates customer with given values in Customer table 
 	 */
 	@Override
 	public void createCustomer(Customer customer) throws ApplicationException {
