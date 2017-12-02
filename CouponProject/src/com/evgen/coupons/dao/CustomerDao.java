@@ -24,7 +24,7 @@ public class CustomerDao extends JdbcUtils implements ICustomerDao {
 	/*
 	 * This method creates customer with given values in Customer table 
 	 */
-	@Override
+	@Override 
 	public void createCustomer(Customer customer) throws ApplicationException {
 
 		String query = "INSERT INTO CUSTOMER (ID, CUST_NAME, PASSWORD) " + "VALUES(?, ?, ?)";
