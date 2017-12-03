@@ -21,20 +21,27 @@ import com.evgen.coupons.dao.CustomerDao;
 import com.evgen.coupons.enums.CouponType;
 import com.evgen.coupons.exceptions.ApplicationException;
 import com.evgen.coupons.logic.CompanyController;
+import com.evgen.coupons.logic.CustomerController;
 
 public class LogicTester {
 
 	    public static void main(String[] args) throws SQLException, ApplicationException {
-	    //	CompanyController cc = new CompanyController((long) 2);
+	   
 	    	
 	    	CustomerDao customerDao = new CustomerDao();
 	    	CouponsDao couponsDao = new CouponsDao();
 	    	CompanyDao companyDao = new CompanyDao();
 	    	
-	   	System.out.println(customerDao.isCustomerExistByName("Mdark"));
-	    	
+	    	 CompanyController cc = new CompanyController();
+	    //	 System.out.println(cc.getCompanybyName("Kia"));
+	    	 CustomerController cust = new CustomerController();
+//	    	 System.out.println(customerDao.isCustomerExistByName("Mark"));
+	    	 System.out.println(cust.getCustomerByName("Pavelka"));
+	         System.out.println(cust.getCustomerByID((long)1));
+	   	
+		//System.out.println(customerDao.isCustomerExistById((long)101));
 	    //	System.out.println(companyDao.isCompanyExistById((long) 1));
-	    	
+	    //	System.out.println(companyDao.isCompanyExistByName(""));
 //	    	Company company = cc.getCompanybyID(2);
 //	    	
 //	    	System.out.println(company);
@@ -70,8 +77,8 @@ public class LogicTester {
 //	    	Company com = new Company ("Barabashka", "12345", "gdfg@fgfdh.com");
 //	    	companyDao.createCompany(com);
 //Customer Create:    	
-//	     	Customer cust = new Customer(5, "Name", "Pass");
-//	    	customerDao.customerCreate(cust);
+//	     	Customer cust = new Customer("Girka", "123");
+//	    	customerDao.createCustomer(cust);
 	    	
 //_________________________________________________________________
 
@@ -104,10 +111,10 @@ public class LogicTester {
 		    
 			try {
        
-//            List<Customer> customerList = customerDao.getAllCustomers();
+//          List<Customer> customerList = customerDao.getAllCustomers();
 //            System.out.println("Customers list:");
-//            for (Customer c : customerList) {
-//                System.out.println(c);
+//           for (Customer c : customerList) {
+//               System.out.println(c);
 //            }
 //           
 //            List<Company> companyList = companyDao.getAllCompanies();
@@ -160,7 +167,7 @@ public class LogicTester {
 //		     Company company = companyDao.getCompanyById((long)2);
 //		     System.out.println(company);
 			 
-//			 Customer customer = customerDao.customerGetById((long)3);
+//			 Customer customer = customerDao.getCustomerById((long)3);
 //			 System.out.println(customer);
 				
 //________________________________________________________________________

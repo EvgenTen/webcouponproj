@@ -17,6 +17,8 @@ public class CustomerController  {
 	// creating constructor
 	private Customer customer;
 	
+	public CustomerController() {
+	}
 	public CustomerController(Customer customer) {
 		this.customer = customer;
 	}
@@ -47,13 +49,15 @@ public class CustomerController  {
 		customerDao.updateCustomer(customer);
 	}
 	// get customer by ID
-	public Customer getCustomerbyID(long customerID) throws ApplicationException {
-		if (customerDao.isCustomerExistById(customer.getId())) {//check if customer exist
+	public Customer getCustomerByID(long customerID) throws ApplicationException {
+		if (customerDao.isCustomerExistById(customerID)) {//check if customer exist
 			
 		}return customerDao.getCustomerById(customerID);
+		
 	}
 	// get customer by Name
-	public Customer getCustomerbyName(String customerName) throws ApplicationException {
+	public Customer getCustomerByName(String customerName) throws ApplicationException {
+		
 		if (customerDao.isCustomerExistByName(customerName)) {//check if customer exist
 			
 		}return customerDao.getCustomerByName(customerName);
@@ -63,10 +67,5 @@ public class CustomerController  {
 	public List<Customer> getAllCustomers() throws ApplicationException {
 		return customerDao.getAllCustomers();
 	}
-	
-
-	
-	
-	
 	
 }

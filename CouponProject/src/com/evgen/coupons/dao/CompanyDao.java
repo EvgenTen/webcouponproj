@@ -189,15 +189,16 @@ public class CompanyDao extends JdbcUtils implements ICompanyDao {
 	@Override
 	public boolean isCompanyExistByName(String companyName) throws ApplicationException {
 
-		String query = "SELECT COMP_NAME FROM COMPANY WHERE COMP_NAME=" + companyName;
+		String query = "SELECT COMP_NAME FROM COMPANY WHERE COMP_NAME= + ?";
 
 		try {
 			connection = getConnection();
 			statement = connection.prepareStatement(query);
+			statement.setString(1, companyName);
+			
 			resultSet = statement.executeQuery();
-			resultSet.next();
-
-			if (!resultSet.next()) {
+	
+			if(!resultSet.next()) {
 				return false;
 			}
 			return true;
@@ -215,17 +216,16 @@ public class CompanyDao extends JdbcUtils implements ICompanyDao {
 	@Override
 	public boolean isCompanyExistById(Long id) throws ApplicationException {
 
-		String query = "SELECT ID FROM COMPANY WHERE ID=" + id;
+		String query = "SELECT ID FROM COMPANY WHERE ID= + ?";
 
 		try {
 			connection = getConnection();
 			statement = connection.prepareStatement(query);
-			resultSet = statement.executeQuery();
-			resultSet.next();
-			statement.executeQuery();
-			if(resultSet != null)
+			statement.setLong(1, id);
 			
-			if (!resultSet.next()) {
+			resultSet = statement.executeQuery();
+			
+			if(!resultSet.next()) {
 				return false;
 			}
 			return true;

@@ -390,16 +390,16 @@ public class CouponsDao extends JdbcUtils implements ICouponsDao {
 	@Override
 	public boolean isCouponExistById(Long id) throws ApplicationException {
 
-		String query = "SELECT ID FROM COUPON WHERE ID=" + id;
+		String query = "SELECT ID FROM COUPON WHERE ID= + ?";
 
 		
 		try {
 			connection = getConnection();
 			statement = connection.prepareStatement(query);
+			statement.setLong(1, id);
+			
 			resultSet = statement.executeQuery();
-			resultSet.next();
-			statement.executeQuery();
-
+			
 			if(!resultSet.next()) {
 				return false;
 			}

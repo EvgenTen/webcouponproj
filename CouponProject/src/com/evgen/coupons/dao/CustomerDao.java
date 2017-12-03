@@ -107,12 +107,13 @@ public class CustomerDao extends JdbcUtils implements ICustomerDao {
 	@Override
 	public Customer getCustomerByName(String name) throws ApplicationException {
 
-		String query = "SELECT * FROM CUSTOMER WHERE CUST_NAME=" + name;
+		String query = "SELECT * FROM CUSTOMER WHERE CUST_NAME= + ?";
 
 		Customer customer = new Customer();
 		try {
 			connection = getConnection();
 			statement = connection.prepareStatement(query);
+			statement.setString(1, name);
 			resultSet = statement.executeQuery();
 			resultSet.next();
 
@@ -214,11 +215,8 @@ public class CustomerDao extends JdbcUtils implements ICustomerDao {
 			statement = connection.prepareStatement(query);
 			statement.setString(1, customerName);
 			
-			
 			resultSet = statement.executeQuery();
-			resultSet.next();
-
-
+	
 			if(!resultSet.next()) {
 				return false;
 			}
@@ -237,14 +235,15 @@ public class CustomerDao extends JdbcUtils implements ICustomerDao {
 	@Override
 	public boolean isCustomerExistById(Long id) throws ApplicationException {
 
-		String query = "SELECT ID FROM CUSTOMER WHERE ID=" + id;
+		String query = "SELECT ID FROM CUSTOMER WHERE ID= + ?";
 
 		try {
 			connection = getConnection();
 			statement = connection.prepareStatement(query);
+			statement.setLong(1, id);
+			
 			resultSet = statement.executeQuery();
-			statement.executeQuery();
-			resultSet.next();
+			
 			if(!resultSet.next()) {
 				return false;
 			}
