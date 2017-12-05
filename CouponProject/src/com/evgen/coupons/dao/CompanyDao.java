@@ -85,12 +85,13 @@ public class CompanyDao extends JdbcUtils implements ICompanyDao {
 	@Override
 	public Company getCompanyById(Long id) throws ApplicationException {
 
-		String query = "SELECT * FROM COMPANY WHERE ID=" + id;
+		String query = "SELECT * FROM COMPANY WHERE ID= ?";
 
 		Company company = new Company();
 		try {
 			connection = getConnection();
 			statement = connection.prepareStatement(query);
+			statement.setLong(1, id);
 			resultSet = statement.executeQuery();
 			resultSet.next();
 
@@ -113,12 +114,13 @@ public class CompanyDao extends JdbcUtils implements ICompanyDao {
 	@Override
 	public Company getCompanyByName(String companyName) throws ApplicationException {
 
-		String query = "SELECT * FROM COMPANY WHERE COMP_NAME=" + companyName;
+		String query = "SELECT * FROM COMPANY WHERE COMP_NAME= ?";
 
 		Company company = new Company();
 		try {
 			connection = getConnection();
 			statement = connection.prepareStatement(query);
+			statement.setString(1, companyName);
 			resultSet = statement.executeQuery();
 			resultSet.next();
 

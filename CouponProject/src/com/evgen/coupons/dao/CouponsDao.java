@@ -98,12 +98,13 @@ public class CouponsDao extends JdbcUtils implements ICouponsDao {
 	@Override
 	public Coupon getCouponById(Long id) throws ApplicationException {
 
-		String query = "SELECT * FROM COUPON WHERE ID=" + id;
+		String query = "SELECT * FROM COUPON WHERE ID= ?" ;
 
 		Coupon coupon = new Coupon();
 		try {
 			connection = getConnection();
 			statement = connection.prepareStatement(query);
+			statement.setLong(1, id);
 			resultSet = statement.executeQuery();
 			resultSet.next();
 			coupon.setId(resultSet.getLong("ID"));
@@ -238,10 +239,11 @@ public class CouponsDao extends JdbcUtils implements ICouponsDao {
 	public List<Coupon> getCouponsByCompany(long companyId) throws ApplicationException {
 		
 		List<Coupon> couponGetByCompany = new ArrayList<>();
-		String query = "SELECT * FROM COUPON WHERE COMP_ID=" + companyId;
+		String query = "SELECT * FROM COUPON WHERE COMP_ID= ?";
 		try {
 			connection = getConnection();
 			statement = connection.prepareStatement(query);
+			statement.setLong(1, companyId);
 			resultSet = statement.executeQuery();
 
 			while (resultSet.next()) {
