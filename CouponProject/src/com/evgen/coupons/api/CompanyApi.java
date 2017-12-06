@@ -6,6 +6,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
 import com.evgen.coupons.beans.Company;
+import com.evgen.coupons.beans.Coupon;
 import com.evgen.coupons.dao.CompanyDao;
 import com.evgen.coupons.exceptions.ApplicationException;
 import com.evgen.coupons.logic.CompanyController;
@@ -15,13 +16,43 @@ import com.evgen.coupons.logic.CompanyController;
 public class CompanyApi 
 {
 	//CompanyDao companyDao = new CompanyDao();
-	CompanyController cc = new CompanyController();
+	CompanyController companyController = new CompanyController();
 
-	@GET
+	@GET     //All
 	@Produces(MediaType.APPLICATION_JSON)
 	 List<Company> companyList() throws ApplicationException
 	 {
-			return cc.getAllCompanies();
+			return companyController.getAllCompanies();
 	 }
+	
+
+	@POST
+	@Consumes(MediaType.APPLICATION_JSON)
+	public void createCompany(Company company) throws ApplicationException{
+		this.companyController.createCompany(company);
+	}
+	
+	@PUT
+	@Consumes(MediaType.APPLICATION_JSON) 
+	public void updateCoupon(Company company) throws ApplicationException{
+		System.out.println(company);
+	}
+	
+	
+	@GET
+	@Path("/{couponId}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Company getCompany(@PathParam("couponId") long id) throws ApplicationException{
+	return companyController.getCompanyByID(id);
+
+	//	return coupon;
+		 
+	}
+	
+	@DELETE
+	@Path("/{couponId}")
+	public void deleteCoupon(@PathParam("couponId") long id) throws ApplicationException{
+		System.out.println("deleted");
+	}
   }
 

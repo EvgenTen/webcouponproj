@@ -58,7 +58,7 @@ public class CompanyController {
 	}
 	/*get company by ID
 	 * */
-	public Company getCompanybyID(long companyID) throws ApplicationException {
+	public Company getCompanyByID(long companyID) throws ApplicationException {
 		if (companyDao.isCompanyExistById(company.getId())) {// check if company with this ID exist in DB
 			
 		}return companyDao.getCompanyById(companyID);
