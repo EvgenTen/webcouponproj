@@ -32,15 +32,16 @@ public class CustomerApi {
 		
 		
 		@GET
-		@Path("/{couponId}")
+		@Path("/{customerId}")
 		@Produces(MediaType.APPLICATION_JSON)
-		public Customer getCustomer(@PathParam("couponId") long id) throws ApplicationException{
+		public Customer getCustomer(@PathParam("customerId") long id) throws ApplicationException{
+		//System.out.println("Hi" + id);
+	    //System.out.println(customerController.getCustomerByID(id));
 		return customerController.getCustomerByID(id);
 
-		//	return coupon;
-			 
 		}
 		
+	
 		@DELETE
 		@Path("/{customerId}")
 		public void deleteCustomer(@PathParam("customerId") long id) throws ApplicationException{

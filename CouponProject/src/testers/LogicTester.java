@@ -36,7 +36,7 @@ public class LogicTester {
 	    //	 System.out.println(cc.getCompanybyName("Kia"));
 	    	 CustomerController cust = new CustomerController();
 //	    	 System.out.println(customerDao.isCustomerExistByName("Mark"));
-	    	 System.out.println(cust.getCustomerByName("Pavelka"));
+	    //	 System.out.println(cust.getCustomerByName("Pavelka"));
 	         System.out.println(cust.getCustomerByID((long)1));
 	   	
 		//System.out.println(customerDao.isCustomerExistById((long)101));

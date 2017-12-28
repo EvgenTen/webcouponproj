@@ -33,6 +33,8 @@ public class CouponsApi {
 		@Path("/{couponId}")
 		@Produces(MediaType.APPLICATION_JSON)
 		public Coupon getCoupon(@PathParam("couponId") long id) throws ApplicationException{
+			
+			System.out.println("Hui");
 		return couponController.getCouponByID(id);
 
 		//	return coupon;

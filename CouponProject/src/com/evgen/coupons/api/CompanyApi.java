@@ -12,7 +12,7 @@ import com.evgen.coupons.exceptions.ApplicationException;
 import com.evgen.coupons.logic.CompanyController;
 
 
-@Path("company")
+@Path("/company")
 public class CompanyApi 
 {
 	//CompanyDao companyDao = new CompanyDao();
