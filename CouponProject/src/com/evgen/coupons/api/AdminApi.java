@@ -1,3 +1,4 @@
+package com.evgen.coupons.api;
 //package com.evgen.coupons.api;
 //
 //

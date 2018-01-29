@@ -29,15 +29,17 @@ public class LogicTester {
 	   
 	    	
 	    	CustomerDao customerDao = new CustomerDao();
-	    	CouponsDao couponsDao = new CouponsDao();
-	    	CompanyDao companyDao = new CompanyDao();
+	   // 	CouponsDao couponsDao = new CouponsDao();
+	   //	CompanyDao companyDao = new CompanyDao();
 	    	
-	    	 CompanyController cc = new CompanyController();
+//	   	    CustomerController cust = new CustomerController();
+	    	CompanyController cmp = new CompanyController();
+//	    	 CompanyController cc = new CompanyController();
 	    //	 System.out.println(cc.getCompanybyName("Kia"));
-	    	 CustomerController cust = new CustomerController();
+	    
 //	    	 System.out.println(customerDao.isCustomerExistByName("Mark"));
 	    //	 System.out.println(cust.getCustomerByName("Pavelka"));
-	         System.out.println(cust.getCustomerByID((long)1));
+	   //    System.out.println(cust.getCustomerByID((long)1));
 	   	
 		//System.out.println(customerDao.isCustomerExistById((long)101));
 	    //	System.out.println(companyDao.isCompanyExistById((long) 1));
@@ -77,8 +79,10 @@ public class LogicTester {
 //	    	Company com = new Company ("Barabashka", "12345", "gdfg@fgfdh.com");
 //	    	companyDao.createCompany(com);
 //Customer Create:    	
-//	     	Customer cust = new Customer("Girka", "123");
-//	    	customerDao.createCustomer(cust);
+	 //    	Customer customer = new Customer("Girkanavter", "123");
+	//    	customerDao.createCustomer(customer);
+	    	 
+	//    	 cust.createCustomer(customer);
 	    	
 //_________________________________________________________________
 
@@ -105,7 +109,8 @@ public class LogicTester {
 //Customer Update:
 //	    	Customer customer = new Customer(5, "Sirozha", "123");
 //	    	customerDao.customerUpdate(customer);
-	    	
+//	    	Customer customer = new Customer(10, "Mike", "12345");
+//	    	cust.updateCustomer(customer);
 	    	
 	    	//	    	________________________________
 		    
@@ -129,6 +134,8 @@ public class LogicTester {
 //            for (Coupon co : couponList) {   	
 //                System.out.println(co);
 //            }
+				
+		//		System.out.println(cmp.getAllCompanies());
 //Get All by Company:
 //				List<Coupon> couponList = couponsDao.couponGetByCompany(7);
 //		        System.out.println("Coupons list:");
@@ -156,10 +163,13 @@ public class LogicTester {
 //			 Company company = new Company();
 //			 company.setId(3);
 //			 companyDao.companyDeleteById(company);
+	//			cmp.deleteCompany(25);
 			
-//			 Customer customer = new Customer();
-//			 customer.setId(25);
-//			 customerDao.customerDeleteById(customer);
+		//	 Customer customer = new Customer();
+		//	 customer.setId(25);
+	//		 cust.deleteCustomer(11);
+			
+	         
 // Get By ID:
 //           Coupon coupon = couponsDao.couponGetById((long)4);
 //           System.out.println(coupon);
@@ -167,8 +177,11 @@ public class LogicTester {
 //		     Company company = companyDao.getCompanyById((long)2);
 //		     System.out.println(company);
 			 
-//			 Customer customer = customerDao.getCustomerById((long)3);
-//			 System.out.println(customer);
+		//	 Customer customer = customerDao.getCustomerById((long)3);
+		//	 System.out.println(customer);
+				
+				//cust.getCustomerByID(2);
+		//		System.out.println(cust.getCustomerByID(11));
 				
 //________________________________________________________________________
 				

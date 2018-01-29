@@ -3,6 +3,9 @@ package com.evgen.coupons.api;
 
 
 import javax.ws.rs.core.MediaType;
+
+import java.util.List;
+
 import javax.ws.rs.*;
 import com.evgen.coupons.beans.Coupon;
 import com.evgen.coupons.beans.Customer;
@@ -18,10 +21,12 @@ public class CustomerApi {
 			this.customerController = new CustomerController();
 		}
 		
-		@POST
+		@POST           // OK
+		@Path("create")
 		@Consumes(MediaType.APPLICATION_JSON)
 		public void createCustomer(Customer customer) throws ApplicationException{
-			this.customerController.createCustomer(customer);
+			customerController.createCustomer(customer);
+			System.out.println("in post" + customer.toString());
 		}
 		
 		@PUT
@@ -31,21 +36,26 @@ public class CustomerApi {
 		}
 		
 		
-		@GET
+		@GET           // OK
 		@Path("/{customerId}")
 		@Produces(MediaType.APPLICATION_JSON)
 		public Customer getCustomer(@PathParam("customerId") long id) throws ApplicationException{
-		//System.out.println("Hi" + id);
-	    //System.out.println(customerController.getCustomerByID(id));
 		return customerController.getCustomerByID(id);
 
+		}
+		
+		@GET           // OK
+		@Path("customerslist")
+		@Produces(MediaType.APPLICATION_JSON)
+		public List <Customer> getAllcustomers() throws ApplicationException{
+			return customerController.getAllCustomers();
 		}
 		
 	
 		@DELETE
 		@Path("/{customerId}")
 		public void deleteCustomer(@PathParam("customerId") long id) throws ApplicationException{
-			System.out.println("deleted");
+			customerController.deleteCustomer(id);
 		}
 		
 	}

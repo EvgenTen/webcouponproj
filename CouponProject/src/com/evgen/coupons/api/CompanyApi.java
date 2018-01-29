@@ -18,41 +18,42 @@ public class CompanyApi
 	//CompanyDao companyDao = new CompanyDao();
 	CompanyController companyController = new CompanyController();
 
-	@GET     //All
+	@GET     //All       OK
+	@Path("companylist")
 	@Produces(MediaType.APPLICATION_JSON)
-	 List<Company> companyList() throws ApplicationException
-	 {
+	 public List <Company> getAllCompanies() throws ApplicationException{
 			return companyController.getAllCompanies();
 	 }
 	
 
-	@POST
+	@POST     // OK
+	@Path("create")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public void createCompany(Company company) throws ApplicationException{
-		this.companyController.createCompany(company);
+		companyController.createCompany(company);
 	}
 	
-	@PUT
+	@PUT   // OK
 	@Consumes(MediaType.APPLICATION_JSON) 
 	public void updateCoupon(Company company) throws ApplicationException{
-		System.out.println(company);
+		companyController.updateCompany(company);
 	}
 	
 	
-	@GET
-	@Path("/{couponId}")
+	@GET     // OK
+	@Path("/{companyid}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Company getCompany(@PathParam("couponId") long id) throws ApplicationException{
+	public Company getCompany(@PathParam("companyid") long id) throws ApplicationException{
 	return companyController.getCompanyByID(id);
 
 	//	return coupon;
 		 
 	}
 	
-	@DELETE
-	@Path("/{couponId}")
-	public void deleteCoupon(@PathParam("couponId") long id) throws ApplicationException{
-		System.out.println("deleted");
+	@DELETE     // OK
+	@Path("/{companyid}")
+	public void deleteCompany(@PathParam("companyid") long id) throws ApplicationException{
+		companyController.deleteCompany(id);
 	}
   }
 

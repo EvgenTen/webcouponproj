@@ -136,12 +136,12 @@ public class Tester {
 //           couponsDao.couponDeleteById(coupon);
 			
 //			 Company company = new Company();
-//			 company.setId(3);
-//			 companyDao.companyDeleteById(company);
+//			 company.setId(26);
+//			 companyDao.deleteCompanyById(company);
 			
-//			 Customer customer = new Customer();
-//			 customer.setId(25);
-//			 customerDao.customerDeleteById(customer);
+		//	 Customer customer = new Customer();
+		//	 customer.setId(1);
+		//	 customerDao.deleteCustomerById(customer);
 // Get By ID:
 //           Coupon coupon = couponsDao.couponGetById((long)4);
 //           System.out.println(coupon);
@@ -149,7 +149,7 @@ public class Tester {
 //		     Company company = companyDao.companyGetById((long)2);
 //		     System.out.println(company);
 			 
-//			 Customer customer = customerDao.customerGetById((long)3);
+//			 Customer customer = customerDao.getCustomerById((long)2);
 //			 System.out.println(customer);
 				
 //________________________________________________________________________

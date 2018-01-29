@@ -184,7 +184,7 @@ public class CouponsDao extends JdbcUtils implements ICouponsDao {
 	@Override
 	public void deleteCouponByCompanyId(Coupon coupon) throws ApplicationException {
 
-		String query = "DELETE FROM COUPON WHERE COMP_ID=";
+		String query = "DELETE FROM COUPON WHERE COMP_ID= ?";
 
 		try {
 			connection = getConnection();

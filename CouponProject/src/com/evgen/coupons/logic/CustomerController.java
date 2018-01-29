@@ -15,7 +15,9 @@ public class CustomerController  {
 	CustomerDao customerDao = new CustomerDao();
 
 	// creating constructor
-	private Customer customer;
+//	private Customer customer;
+	
+	private Customer customer = new Customer();
 	
 	public CustomerController() {
 	}
@@ -32,15 +34,16 @@ public class CustomerController  {
 	// Create customer
 	public void createCustomer(Customer customer) throws ApplicationException{
 
-		if (customerDao.isCustomerExistByName(customer.getCustomerName())) //check if customer exist by name
+		if (!customerDao.isCustomerExistByName(customer.getCustomerName())) //check if customer exist by name
 		customerDao.createCustomer(customer);
 	}
 	// delete customer 
 	public void deleteCustomer (long customerID) throws ApplicationException{
-		if (customerDao.isCustomerExistById(customerID))//check if customer exist by ID
+		if (customerDao.isCustomerExistById(customerID)) {//check if customer exist by ID
 		customer.setId(customerID);
+		 customerDao.deleteCustomerById(customer);
 		couponsDao.deleteCouponInJoinedTableByCustomerId(customerID); // delete customer`s coupon
-		customerDao.deleteCustomerById(customer);
+		}
 	}
 	
 	// update customer
@@ -52,7 +55,9 @@ public class CustomerController  {
 	public Customer getCustomerByID(long customerID) throws ApplicationException {
 		if (customerDao.isCustomerExistById(customerID)) {//check if customer exist
 			
-		}return customerDao.getCustomerById(customerID);
+		}
+		return customerDao.getCustomerById(customerID);
+		
 		
 	}
 	// get customer by Name
@@ -67,5 +72,6 @@ public class CustomerController  {
 	public List<Customer> getAllCustomers() throws ApplicationException {
 		return customerDao.getAllCustomers();
 	}
+	
 	
 }

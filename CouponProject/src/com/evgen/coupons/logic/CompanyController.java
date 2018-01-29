@@ -16,8 +16,8 @@ public class CompanyController {
 	CompanyDao companyDao = new CompanyDao();
 	
 	// creating constructor
-	private Company company;
-	private Coupon coupon;
+	private Company company = new Company();
+	private Coupon coupon = new Coupon();
 	public CompanyController(){
 	}
 	public CompanyController(Company company) {
@@ -46,9 +46,10 @@ public class CompanyController {
 	public void deleteCompany(long companyID) throws ApplicationException{
 		if (companyDao.isCompanyExistById(companyID)) // check if company with this ID exist in DB
 			company.setId(companyID);
+		System.out.println(company.getId());
 		    coupon.setCompanyId(companyID);
 			couponsDao.deleteCouponByCompanyId(coupon); // deleting company with all its coupons
-		companyDao.deleteCompanyById(company);
+		    companyDao.deleteCompanyById(company);
 	}
 	/*retrieve company 
 	 * */
