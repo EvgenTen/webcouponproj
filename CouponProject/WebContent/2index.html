@@ -1,0 +1,56 @@
+<html>
+<script src="js/jquery.js"></script>
+ <script src="js/bootstrap.min.js"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
+ <script type="text/javascript" src="js/app.js"></script>
+<head>
+ <link rel="stylesheet" href="css/bootstrap.min.css">
+ <title>Angular Custom Table Edit</title>
+ <style>
+ #mytable input{
+ width:100%;
+ }
+</style>
+</head>
+<body ng-app="myApp" ng-controller="controller">
+  <h1 align="center" style="color:#428bca">Custom Table Edit </h1>
+<div class="container">
+ <div class="row">
+ <button type="button" style="float:right;margin-bottom: 10px;" class="btn btn-info " ng-click="insertRow">Add Customer</button>
+ <div class="col-md-12">
+ <div class="table-responsive">
+      <form id="empform" ng-submit="submitCustomer()">
+          <table id="mytable" class="table table-bordered">
+              <thead>
+                 <th style="width:5%;">ID</th>
+                  <th style="width:20%;">Customer Name</th>
+                  <th style="width:15%;">Password</th>
+                  <th style="width:10%;">Action</th>
+                  
+                 </thead>
+            <tbody>
+           
+                <tr ng-repeat="x in myData" ng-init="isDisabled = true">
+                   <td><input name="id" ng-model="x.id" ng-disabled="true"/></td>
+                   <td><input name="customerName" ng-model="x.customerName" ng-disabled="isDisabled"/> </td>
+                    <td><input name="password" ng-model="x.password" ng-disabled="isDisabled"/></td>
+                
+                     <td >
+                         <div class="buttons">
+                              <button class="btn btn-primary" ng-click="isDisabled=false" >Edit</button>
+                              <button class="btn btn-danger" ng-click="deleteCustomer($index)">Delete</button>
+                         </div> 
+                     </td>
+                  </tr>
+         </tbody>
+     </table>
+    <input type="submit" class="btn btn-primary" value="Submit" />
+ </form>
+ <div class="clearfix"></div>
+ </div>
+ </div>
+  </div>
+  
+ </body>
+ 
+ </html>
