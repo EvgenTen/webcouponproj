@@ -22,7 +22,7 @@ public class CustomerApi {
 		}
 		
 		@POST           // OK
-		@Path("create")
+		@Path("/create")
 		@Consumes(MediaType.APPLICATION_JSON)
 		public void createCustomer(Customer customer) throws ApplicationException{
 			customerController.createCustomer(customer);
@@ -33,6 +33,7 @@ public class CustomerApi {
 		@Consumes(MediaType.APPLICATION_JSON) 
 		public void updateCustomer(Customer customer) throws ApplicationException{
 			System.out.println(customer);
+			System.out.println("in put");
 		}
 		
 		
