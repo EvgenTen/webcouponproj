@@ -26,14 +26,14 @@ public class CustomerApi {
 		@Consumes(MediaType.APPLICATION_JSON)
 		public void createCustomer(Customer customer) throws ApplicationException{
 			customerController.createCustomer(customer);
-			System.out.println("in post" + customer.toString());
+			
 		}
 		
 		@PUT
 		@Consumes(MediaType.APPLICATION_JSON) 
 		public void updateCustomer(Customer customer) throws ApplicationException{
-			System.out.println(customer);
-			System.out.println("in put");
+			customerController.updateCustomer(customer);
+		
 		}
 		
 		
@@ -41,8 +41,9 @@ public class CustomerApi {
 		@Path("/{customerId}")
 		@Produces(MediaType.APPLICATION_JSON)
 		public Customer getCustomer(@PathParam("customerId") long id) throws ApplicationException{
-		return customerController.getCustomerByID(id);
-
+			
+			return customerController.getCustomerByID(id);
+		
 		}
 		
 		@GET           // OK
@@ -55,8 +56,10 @@ public class CustomerApi {
 	
 		@DELETE
 		@Path("/{customerId}")
+		
 		public void deleteCustomer(@PathParam("customerId") long id) throws ApplicationException{
 			customerController.deleteCustomer(id);
+		
 		}
 		
 	}
