@@ -31,7 +31,7 @@ public class LogicTester {
 	    	
 	    	CustomerDao customerDao = new CustomerDao();
 	   	CouponsDao couponsDao = new CouponsDao();
-	   //	CompanyDao companyDao = new CompanyDao();
+	   //	CompanyDao companyDao = new CompanyDao();   
 	    	
 //	   	    CustomerController cust = new CustomerController();
 	    	CompanyController cmp = new CompanyController();
