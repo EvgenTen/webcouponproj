@@ -34,7 +34,7 @@ public class CouponController {
 		couponsDao.createCoupon(coupon);
 	}
 	//get List of all coupons
-	List<Coupon> getAllCoupons() throws ApplicationException {
+	public List<Coupon> getAllCoupons() throws ApplicationException {
 		return couponsDao.getAllCoupons();
 	}
 	// get coupon by ID

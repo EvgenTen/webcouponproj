@@ -1,0 +1,66 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8"> 
+<title>SPA Coupon System</title>  
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script type="text/javascript" src="js/crudCompany.js"></script>
+</head>  
+<body>  
+<div class="col-md-12">
+	<h2 align="center">Admin Panel</h2>
+	<h3 align="center">Company administration</h3>
+	<div ng-app="sa_app" ng-controller="controller" ng-init="show_data()">
+		<div class="col-md-6">
+		   	<label>ID</label>
+            <input type="text" name="id" ng-model="id" class="form-control">
+            <br/>
+            <label>Company name</label>
+            <input type="text" name="companyName" ng-model="companyName" class="form-control">
+            <br/>
+            <label>Password</label>
+            <input type="text" name="password" ng-model="password" class="form-control">
+            <br/>
+             <label>Email</label>
+            <input type="text" name="email" ng-model="email" class="form-control">
+            <br/>
+            <input type="hidden" ng-model="id">
+            <input type="submit" name="insert" class="btn btn-primary" ng-click="insert()" value="{{btnName}}">
+		</div>
+        <div class="col-md-6">
+            <table class="table table-bordered">
+                <tr>
+                    <th>ID</th>
+                    <th>Company name</th>
+                    <th>Password</th>
+                    <th>Email</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                <tr ng-repeat="x in names">
+                <td>{{x.id}}</td>
+                <td>{{x.companyName}}</td>
+                <td>{{x.password}}</td>
+                <td>{{x.email}}</td>
+                  
+                    <td>
+                        <button class="btn btn-success btn-xs" ng-click="edit_data(x.id, x.companyName, x.password, x.email)">
+                            <span class="glyphicon glyphicon-edit"></span> Edit
+                        </button>
+                    </td>
+                    <td>
+                        <button class="btn btn-danger btn-xs" ng-click="delete_data(x.id )">
+                            <span class="glyphicon glyphicon-trash"></span> Delete
+                        </button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+ 
+</body>  
+</html>  
+ 

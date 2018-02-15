@@ -21,6 +21,7 @@ import com.evgen.coupons.dao.CustomerDao;
 import com.evgen.coupons.enums.CouponType;
 import com.evgen.coupons.exceptions.ApplicationException;
 import com.evgen.coupons.logic.CompanyController;
+import com.evgen.coupons.logic.CouponController;
 import com.evgen.coupons.logic.CustomerController;
 
 public class LogicTester {
@@ -29,12 +30,13 @@ public class LogicTester {
 	   
 	    	
 	    	CustomerDao customerDao = new CustomerDao();
-	   // 	CouponsDao couponsDao = new CouponsDao();
+	   	CouponsDao couponsDao = new CouponsDao();
 	   //	CompanyDao companyDao = new CompanyDao();
 	    	
 //	   	    CustomerController cust = new CustomerController();
 	    	CompanyController cmp = new CompanyController();
 //	    	 CompanyController cc = new CompanyController();
+	    	CouponController cop = new CouponController();
 	    //	 System.out.println(cc.getCompanybyName("Kia"));
 	    
 //	    	 System.out.println(customerDao.isCustomerExistByName("Mark"));

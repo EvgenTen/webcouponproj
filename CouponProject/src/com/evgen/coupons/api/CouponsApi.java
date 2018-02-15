@@ -2,7 +2,12 @@ package com.evgen.coupons.api;
 
 
 import javax.ws.rs.core.MediaType;
+
+import java.util.List;
+
 import javax.ws.rs.*;
+
+import com.evgen.coupons.beans.Company;
 import com.evgen.coupons.beans.Coupon;
 import com.evgen.coupons.exceptions.ApplicationException;
 import com.evgen.coupons.logic.CouponController;
@@ -28,13 +33,16 @@ public class CouponsApi {
 			System.out.println(coupon);
 		}
 		
-		
+		@GET     //All        OK
+		@Path("couponslist")
+		@Produces(MediaType.APPLICATION_JSON)
+		 public List <Coupon> getAllCoupons() throws ApplicationException{
+				return couponController.getAllCoupons();
+		 }
 		@GET
 		@Path("/{couponId}")
 		@Produces(MediaType.APPLICATION_JSON)
 		public Coupon getCoupon(@PathParam("couponId") long id) throws ApplicationException{
-			
-			System.out.println("Hui");
 		return couponController.getCouponByID(id);
 
 		//	return coupon;

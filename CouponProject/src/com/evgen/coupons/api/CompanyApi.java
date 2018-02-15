@@ -31,7 +31,6 @@ public class CompanyApi
 	@Consumes(MediaType.APPLICATION_JSON)
 	public void createCompany(Company company) throws ApplicationException{
 		companyController.createCompany(company);
-		System.out.println("in post");
 	}
 	
 	@PUT   // OK

@@ -1,5 +1,5 @@
-var app = angular.module("sa_app", []);
-app.controller("controller", function($scope, $http) {
+var app = angular.module('sa_app', []);
+app.controller('controller', function($scope, $http) {
     $scope.btnName = "Insert";
     $scope.insert = function() {
    
@@ -17,18 +17,18 @@ app.controller("controller", function($scope, $http) {
                   customerName: $scope.customerName,
                   password: $scope.password
               }
-        	}).success(function(data) {
-             
-              $scope.btnName = "Insert";
-              $scope.show_data();
-          });
-        }
-   
+        	}).then(function(response) {
+    		$scope.names = response.data;
+    		});
+        window.location.reload();
+    	 } 
+    
     }
+
     $scope.show_data = function() {
         $http.get("http://localhost:8080/CouponProject/manage/customer/customerslist")
-            .success(function(data) {
-                $scope.names = data;
+            .then(function (response) {
+                $scope.names = response.data;
             });
     }
     
@@ -49,9 +49,10 @@ app.controller("controller", function($scope, $http) {
               customerName: $scope.customerName,
               password: $scope.password
           }
-    	}).success(function(data) {
+    	}).then(function(response) {
+    		$scope.names = response.data;
     		});
-        location.reload();
+        window.location.reload();
     	 } else {
              return false;
          } 
@@ -66,9 +67,10 @@ app.controller("controller", function($scope, $http) {
         if (confirm("Are you sure you want to delete?")) {
             $http.delete("http://localhost:8080/CouponProject/manage/customer/" + id, {
                 })
-                .success(function(data) {
-                    $scope.show_data();
-                });
+                .then(function(response) {
+            		$scope.names = response.data;
+            		});
+            window.location.reload();
         } else {
             return false;
         }
