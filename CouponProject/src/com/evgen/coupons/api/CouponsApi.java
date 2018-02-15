@@ -33,7 +33,7 @@ public class CouponsApi {
 			System.out.println(coupon);
 		}
 		
-		@GET     //All        OK
+		@GET     //All         OK
 		@Path("couponslist")
 		@Produces(MediaType.APPLICATION_JSON)
 		 public List <Coupon> getAllCoupons() throws ApplicationException{
