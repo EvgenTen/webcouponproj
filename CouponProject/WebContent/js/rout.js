@@ -28,6 +28,7 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
         .state("page1", {
             url: "/page1",
             templateUrl: "htm/blue.htm"
+            	
         })
         .state("page2", {
             url:"/page2",

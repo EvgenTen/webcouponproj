@@ -15,13 +15,15 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
         // nested list with custom controller
         .state('home.list', {
             url: '/2admin.html',
-            templateUrl: '/CouponProject/2admin.html'
+            templateUrl: '/CouponProject/2admin.html',
+            controller: 'controller'
           
         })
         
         // nested list with just some random string data
         .state('home.paragraph', {
-            url: '/CouponProject/htm/admin.htm'
+            url: '/CouponProject/htm/admin.htm',
+            	 controller: 'controller'
             
         })
         

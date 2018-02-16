@@ -1,66 +1,122 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8"> 
-<title>SPA Coupon System</title>  
-
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js"></script>
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400' rel='stylesheet' type='text/css'>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+
+<body ng-app="myApp">
+
+<p><a href="#/!">Main</a></p>
+
+<a href="#!london">City 1</a>
+<a href="#!paris">City 2</a>
+
+<p>Click on the links.</p>
+
+<p>Note that each "view" has its own controller which each gives the "msg" variable a value.</p>
+
+<div ng-view></div>
+
+<script>
+var app = angular.module("myApp", ["ngRoute"]);
+app.config(function($routeProvider) {
+    $routeProvider
+    .when("/", {
+        templateUrl : "main.htm",
+    })
+    .when("/london", {
+        templateUrl : "htm/admin.htm",
+        controller : "controller"
+    })
+    .when("/paris", {
+        templateUrl : "htm/blue.htm",
+        controller : "parisCtrl"
+    });
+});
+app.controller("londonCtrl", function ($scope) {
+    $scope.msg = "I love London";
+});
+app.controller("parisCtrl", function ($scope) {
+    $scope.msg = "I love Paris";
+});
+var app = angular.module('myApp', []);
+app.controller('controller', function($scope, $http) {
+    $scope.btnName = "Insert";
+    $scope.insert = function() {
+   
+        if ($scope.customerName == null) {
+            alert("Enter Name");
+        } else if ($scope.password == null) {
+            alert("Enter Password");
+        
+        } else {
+        	$http ({
+        		method: 'POST',
+        		url: 'http://localhost:8080/CouponProject/manage/customer/create',
+        		data : 	{
+                  id: $scope.id,
+                  customerName: $scope.customerName,
+                  password: $scope.password
+              }
+        	}).then(function(response) {
+    		$scope.names = response.data;
+    		});
+        window.location.reload();
+    	 } 
+    
+    }
+
+    $scope.show_data = function() {
+        $http.get("http://localhost:8080/CouponProject/manage/customer/customerslist")
+            .then(function (response) {
+                $scope.names = response.data;
+            });
+    }
+    
+    $scope.edit_data = function(id, customerName, password) {
+       $scope.id = id;
+       $scope.customerName = customerName;
+       $scope.password = password;
+       $scope.btnName = "Update";
+    
+    $scope.insert = function(id, customerName, password) {
+    	if (confirm("Update customer?")) {
+    	
+    	$http ({
+    		method: 'PUT',
+    		url: 'http://localhost:8080/CouponProject/manage/customer/',
+    		data : 	{
+              id: $scope.id,
+              customerName: $scope.customerName,
+              password: $scope.password
+          }
+    	}).then(function(response) {
+    		$scope.names = response.data;
+    		});
+        window.location.reload();
+    	 } else {
+             return false;
+         } 
+     
+         }
+   
+  }
+ 
   
-<script type="text/javascript" src="js/crudAdmin.js"></script>
-<script type="text/javascript" src="js/crudCompany.js"></script>
-<script type="text/javascript" src="js/rout.js"></script>
-</head>  
 
+    $scope.delete_data = function(id) {
+        if (confirm("Are you sure you want to delete?")) {
+            $http.delete("http://localhost:8080/CouponProject/manage/customer/" + id, {
+                })
+                .then(function(response) {
+            		$scope.names = response.data;
+            		});
+            window.location.reload();
+        } else {
+            return false;
+        }
+    }
+});
+</script>
 
-<body ng-app="DemoApp">
-	
-	<div ng-controller="DemoController">
-		<header>
-			<h1>AngularJS && UI.Router</h1>
-			<h2>Example 1: Transition between state</h2>
-		</header>
-
-		<nav>
-			<ul>
-				<li>
-					<a 	href="#" title="left" 	
-						ng-class="{active:transition=='slide-left'}" 		ng-click="left()"> 
-						Left
-					</a>
-				</li>
-				<li>
-					<a 	href="#" title="right" 	
-						ng-class="{'active':transition=='slide-right'}" 	ng-click="right()">
-						Right
-					</a>
-				</li>
-				<li>
-					<a 	href="#" title="top" 	
-						ng-class="{'active':transition=='slide-top'}" 		ng-click="top()">
-						Top
-					</a>
-				</li>
-				<li>
-					<a 	href="#" title="bottom" 	
-						ng-class="{'active':transition=='slide-bottom'}" 	ng-click="bottom()">
-						Bottom
-					</a>
-				</li>
-			</ul>
-		</nav>
-
-		<div class="content">
-			<div ui-view ng-class="transition">
-				default content
-			</div>
-		</div>
-	</div>
-
-  <script data-require="angular.js@1.2.10" data-semver="1.2.10" src="https://code.angularjs.org/1.2.10/angular.min.js"></script>
-  <script data-require="angular-animate@1.2.11" data-semver="1.2.11" src="https://code.angularjs.org/1.2.11/angular-animate.min.js"></script>
-  <script src="https://angular-ui.github.io/ui-router/release/angular-ui-router.min.js"></script>
 </body>
 </html>
