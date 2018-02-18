@@ -1,0 +1,81 @@
+<div class="col-md-12">
+	<h2 align="center">Coupons</h2>
+	
+	<div ng-app="crud" ng-controller="controller" ng-init="show_data()">
+		<div class="col-md-6">
+		   	<label>ID</label>
+            <input type="text" name="id" ng-model="id" class="form-control">
+            <br/>
+            <label>Title</label>
+            <input type="text" name="title" ng-model="companyName" class="form-control">
+            <br/>
+            <label>Start Date</label>
+            <input type="text" name="startDate" ng-model="companyName" class="form-control">
+            <br/>
+            <label>End Date</label>
+            <input type="text" name="endDate" ng-model="companyName" class="form-control">
+            <br/>
+            <label>Amount</label>
+            <input type="text" name="amount" ng-model="companyName" class="form-control">
+            <br/>
+            <label>Message</label>
+            <input type="text" name="message" ng-model="password" class="form-control">
+            <br/>
+            <label>Price</label>
+            <input type="text" name="price" ng-model="companyName" class="form-control">
+            <br/>
+            <label>Type</label>
+            <input type="text" name="type" ng-model="companyName" class="form-control">
+            <br/>
+            <label>Image</label>
+            <input type="text" name="image" ng-model="email" class="form-control">
+            <br/>
+             <label>Company ID</label>
+            <input type="text" name="companyId" ng-model="email" class="form-control">
+            <br/>
+            <input type="hidden" ng-model="id">
+            <input type="submit" name="insert" class="btn btn-primary" ng-click="insert()" value="{{btnName}}">
+		</div>
+        <div class="col-md-6">
+            <table class="table table-bordered">
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Amount</th>
+                    <th>Message</th>
+                     <th>Price</th>
+                    <th>Type</th>
+                     <th>Image</th>
+                    <th>Company ID</th>
+                     <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                <tr ng-repeat="x in names">
+                <td>{{x.id}}</td>
+                <td>{{x.title}}</td>
+                <td>{{x.startDate}}</td>
+                <td>{{x.endDate}}</td>
+                 <td>{{x.amount}}</td>
+                <td>{{x.message}}</td>
+                 <td>{{x.price}}</td>
+                <td>{{x.type}}</td>
+                 <td>{{x.image}}</td>
+                <td>{{x.companyId}}</td>
+                  
+                    <td>
+                        <button class="btn btn-success btn-xs" ng-click="edit_data
+                        (x.id, x.title, x.startDate, x.endDate, x.amount, x.message, x.price, x.type, x.image, x.companyId)">
+                            <span class="glyphicon glyphicon-edit"></span> Edit
+                        </button>
+                    </td>
+                    <td>
+                        <button class="btn btn-danger btn-xs" ng-click="delete_data(x.id )">
+                            <span class="glyphicon glyphicon-trash"></span> Delete
+                        </button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>

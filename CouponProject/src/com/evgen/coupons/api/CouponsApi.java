@@ -52,7 +52,7 @@ public class CouponsApi {
 		@DELETE
 		@Path("/{couponId}")
 		public void deleteCoupon(@PathParam("couponId") long id) throws ApplicationException{
-			System.out.println("deleted");
+			couponController.deleteCouponById(id);
 		}
 		
 	}

@@ -131,9 +131,9 @@ public class Tester {
 //	            }
 //				________________________________
 // DELETE:      
-//           Coupon coupon = new Coupon();
-//           coupon.setId(3);
-//           couponsDao.couponDeleteById(coupon);
+           Coupon coupon = new Coupon();
+           coupon.setId(4);
+           couponsDao.deleteCouponById(coupon);
 			
 //			 Company company = new Company();
 //			 company.setId(26);
@@ -152,7 +152,11 @@ public class Tester {
 //			 Customer customer = customerDao.getCustomerById((long)2);
 //			 System.out.println(customer);
 				
-//________________________________________________________________________
+           
+       //    is exist
+           
+           System.out.println(couponsDao.isCouponExistById((long) 1));
+//_______________________________________________________________________
 				
 //Coupon get time:
 				 

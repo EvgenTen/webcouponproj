@@ -1,4 +1,4 @@
-var app = angular.module('sa_app', []);
+var app = angular.module('crud', []);
 app.controller('controller', function($scope, $http) {
     $scope.btnName = "Insert";
     $scope.insert = function() {

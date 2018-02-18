@@ -40,9 +40,9 @@ public class CouponController {
 	// get coupon by ID
 	public Coupon getCouponByID(long couponID) throws ApplicationException {
 		if (couponsDao.isCouponExistById(coupon.getId())) { // check if coupon exist by ID
-
-		}
-		return couponsDao.getCouponById(couponID);
+		}return couponsDao.getCouponById(couponID); 
+			
+		
 	}
 	// update coupon
 	public void updateCoupon(Coupon coupon) throws ApplicationException {

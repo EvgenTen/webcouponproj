@@ -1,8 +1,6 @@
 <div class="col-md-12">
-
-	<h2 align="center">Admin Panel</h2>
-	<h3 align="center">Customer administration</h3>
-	<div ng-app="routerApp" ng-controller="controller" ng-init="show_data()">
+<h2 align="center">Customers</h2>
+	<div ng-app="crud" ng-controller="controller" ng-init="show_data()">
 		<div class="col-md-6">
 		   	<label>ID</label>
             <input type="text" name="id" ng-model="id" class="form-control">
@@ -16,6 +14,7 @@
             <input type="hidden" ng-model="id">
             <input type="submit" name="insert" class="btn btn-primary" ng-click="insert()" value="{{btnName}}">
 		</div>
+		
         <div class="col-md-6">
             <table class="table table-bordered">
                 <tr>
@@ -35,6 +34,8 @@
                             <span class="glyphicon glyphicon-edit"></span> Edit
                         </button>
                     </td>
+                   
+                    <h2 align="center"> Hello {{5+5}}</h2>
                     <td>
                         <button class="btn btn-danger btn-xs" ng-click="delete_data(x.id )">
                             <span class="glyphicon glyphicon-trash"></span> Delete

@@ -1,7 +1,7 @@
-var routerApp = angular.module('routerApp', ['ui.router']);
+var routerApp = angular.module('router', ['ui.router']);
 
 routerApp.config(function($stateProvider, $urlRouterProvider) {
-    
+	
     $urlRouterProvider.otherwise('/home');
     
     $stateProvider
@@ -9,36 +9,31 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
         // HOME STATES AND NESTED VIEWS ========================================
         .state('home', {
             url: '/home',
-            templateUrl: 'partial-home.html'
+            templateUrl: 'head.html'
         })
         
         // nested list with custom controller
-        .state('home.list', {
-            url: '/2admin.html',
-            templateUrl: '/CouponProject/2admin.html',
+        .state('home.customers', {
+            url: '/customers',
+            templateUrl: '/CouponProject/htm/customers.htm',
             controller: 'controller'
           
         })
         
-        // nested list with just some random string data
-        .state('home.paragraph', {
-            url: '/CouponProject/htm/admin.htm',
+        .state('home.company', {
+            url: '/company',
+            templateUrl: '/CouponProject/htm/company.htm',
             	 controller: 'controller'
             
         })
         
-        // ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================
-        .state('about', {
-            url: '/about',
-            views: {
-                '': { templateUrl: '/CouponProject/htm/admin.htm' },
-                'columnOne@about': { template: 'Look I am a column!' },
-                'columnTwo@about': { 
-                    templateUrl: 'table-data.html',
-                    controller: 'scotchController'
-                }
-            }
+        .state('home.coupons', {
+            url: '/coupons',
+            templateUrl: '/CouponProject/htm/coupons.htm',
+            	 controller: 'controller'
             
-        });
+        })
+        
+      
         
 });

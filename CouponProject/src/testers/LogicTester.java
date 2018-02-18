@@ -161,6 +161,8 @@ public class LogicTester {
 //           Coupon coupon = new Coupon();
 //           coupon.setId(3);
 //           couponsDao.couponDeleteById(coupon);
+				
+		//		cop.deleteCouponById(35);
 			
 //			 Company company = new Company();
 //			 company.setId(3);
@@ -175,7 +177,7 @@ public class LogicTester {
 // Get By ID:
 //           Coupon coupon = couponsDao.couponGetById((long)4);
 //           System.out.println(coupon);
-				
+				System.out.println(cop.getCouponByID(1));
 //		     Company company = companyDao.getCompanyById((long)2);
 //		     System.out.println(company);
 			 
